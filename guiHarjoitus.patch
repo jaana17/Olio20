@@ -1,0 +1,220 @@
+diff --git a/.classpath b/.classpath
+new file mode 100644
+index 0000000..090dfff
+--- /dev/null
++++ b/.classpath
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<classpath>
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
++		<attributes>
++			<attribute name="module" value="true"/>
++		</attributes>
++	</classpathentry>
++	<classpathentry kind="src" path="src"/>
++	<classpathentry kind="output" path="bin"/>
++</classpath>
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..ae3c172
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1 @@
++/bin/
+diff --git a/.project b/.project
+new file mode 100644
+index 0000000..4abb0a3
+--- /dev/null
++++ b/.project
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<projectDescription>
++	<name>guiHarjoitus</name>
++	<comment></comment>
++	<projects>
++	</projects>
++	<buildSpec>
++		<buildCommand>
++			<name>org.eclipse.jdt.core.javabuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++	</buildSpec>
++	<natures>
++		<nature>org.eclipse.jdt.core.javanature</nature>
++	</natures>
++</projectDescription>
+diff --git a/.settings/org.eclipse.jdt.core.prefs b/.settings/org.eclipse.jdt.core.prefs
+new file mode 100644
+index 0000000..21c3a9f
+--- /dev/null
++++ b/.settings/org.eclipse.jdt.core.prefs
+@@ -0,0 +1,14 @@
++eclipse.preferences.version=1
++org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
++org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.7
++org.eclipse.jdt.core.compiler.codegen.unusedLocal=preserve
++org.eclipse.jdt.core.compiler.compliance=1.7
++org.eclipse.jdt.core.compiler.debug.lineNumber=generate
++org.eclipse.jdt.core.compiler.debug.localVariable=generate
++org.eclipse.jdt.core.compiler.debug.sourceFile=generate
++org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
++org.eclipse.jdt.core.compiler.problem.enablePreviewFeatures=disabled
++org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
++org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures=warning
++org.eclipse.jdt.core.compiler.release=disabled
++org.eclipse.jdt.core.compiler.source=1.7
+diff --git a/src/guiHarjoitus.java b/src/guiHarjoitus.java
+new file mode 100644
+index 0000000..6b7fb65
+--- /dev/null
++++ b/src/guiHarjoitus.java
+@@ -0,0 +1,41 @@
++import java.awt.EventQueue;
++
++import javax.swing.JFrame;
++
++public class guiHarjoitus {
++
++	private JFrame frame;
++
++	/**
++	 * Launch the application.
++	 */
++	public static void main(String[] args) {
++		EventQueue.invokeLater(new Runnable() {
++			public void run() {
++				try {
++					guiHarjoitus window = new guiHarjoitus();
++					window.frame.setVisible(true);
++				} catch (Exception e) {
++					e.printStackTrace();
++				}
++			}
++		});
++	}
++
++	/**
++	 * Create the application.
++	 */
++	public guiHarjoitus() {
++		initialize();
++	}
++
++	/**
++	 * Initialize the contents of the frame.
++	 */
++	private void initialize() {
++		frame = new JFrame();
++		frame.setBounds(100, 100, 450, 300);
++		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++	}
++
++}
+diff --git a/src/guiHarjoitus/WBkokeilu.java b/src/guiHarjoitus/WBkokeilu.java
+new file mode 100644
+index 0000000..29e5f57
+--- /dev/null
++++ b/src/guiHarjoitus/WBkokeilu.java
+@@ -0,0 +1,52 @@
++package guiHarjoitus;
++
++import java.awt.BorderLayout;
++import java.awt.EventQueue;
++
++import javax.swing.JFrame;
++import javax.swing.JPanel;
++import javax.swing.border.EmptyBorder;
++import javax.swing.JLabel;
++import javax.swing.JTextField;
++import java.awt.GridLayout;
++
++public class WBkokeilu extends JFrame {
++
++	private JPanel contentPane;
++	private final JTextField textField = new JTextField();
++
++	/**
++	 * Launch the application.
++	 */
++	public static void main(String[] args) {
++		EventQueue.invokeLater(new Runnable() {
++			public void run() {
++				try {
++					WBkokeilu frame = new WBkokeilu();
++					frame.setVisible(true);
++				} catch (Exception e) {
++					e.printStackTrace();
++				}
++			}
++		});
++	}
++
++	/**
++	 * Create the frame.
++	 */
++	public WBkokeilu() {
++		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++		setBounds(100, 100, 450, 300);
++		contentPane = new JPanel();
++		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
++		setContentPane(contentPane);
++		contentPane.setLayout(null);
++		textField.setBounds(158, 27, 173, 31);
++		contentPane.add(textField);
++		textField.setColumns(10);
++		
++		JLabel lblNewLabel = new JLabel("New label");
++		lblNewLabel.setBounds(85, 35, 46, 14);
++		contentPane.add(lblNewLabel);
++	}
++}
+diff --git a/src/guiHarjoitus/gui.java b/src/guiHarjoitus/gui.java
+new file mode 100644
+index 0000000..14414b8
+--- /dev/null
++++ b/src/guiHarjoitus/gui.java
+@@ -0,0 +1,27 @@
++package guiHarjoitus;
++import javax.swing.*;
++import java.awt.BorderLayout;
++public class gui {
++
++	public static void main(String[] args) {
++		JFrame frame = new JFrame("Eka ikkuna");
++		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++
++		frame.setSize(300,300);
++		JButton button1 = new JButton("Paina!");
++		frame.add(button1);
++		frame.getContentPane().setLayout(new BorderLayout()); 
++		frame.getContentPane().add(BorderLayout.WEST,button1); 
++		
++
++		JTextArea ta = new JTextArea(10,10); 
++		frame.getContentPane().add(BorderLayout.CENTER,ta);
++
++		frame.setVisible(true);
++
++		}
++	// TODO Auto-generated method stub
++
++	}
++
++
+diff --git a/src/module-info.java b/src/module-info.java
+new file mode 100644
+index 0000000..981f788
+--- /dev/null
++++ b/src/module-info.java
+@@ -0,0 +1,9 @@
++/**
++ * 
++ */
++/**
++ * @author Kotikone
++ *
++ */
++module guiHarjoitus {
++}
+\ No newline at end of file
